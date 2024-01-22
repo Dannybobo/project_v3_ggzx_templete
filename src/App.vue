@@ -1,9 +1,9 @@
-<template>
-  <div><h1>App</h1></div>
-</template>
+<template></template>
 
 <script>
-export default {};
+for (let i = 0; i < 100; i++) {
+  console.log(i)
+}
 </script>
 
 <style></style>
