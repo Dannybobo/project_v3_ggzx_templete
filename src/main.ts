@@ -1,18 +1,22 @@
-import { createApp } from 'vue'
-import App from '@/App.vue'
+import { createApp } from 'vue';
 
-const app = createApp(App)
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import App from '@/App.vue';
+import globalComponent from '@/components';
+import router from '@/router';
+import pinia from '@/store';
 
-//@ts-expect-error import lang mjs file
-import zhTW from 'element-plus/dist/locale/zh-tw.mjs'
-app.use(ElementPlus, { locale: zhTW })
+import ElementPlus from 'element-plus';
+import zhTW from 'element-plus/dist/locale/zh-tw.mjs'; //@ts-expect-error import lang mjs file
+import 'element-plus/dist/index.css';
 
-import 'virtual:svg-icons-register'
-import globalComponent from '@/components'
-app.use(globalComponent)
+import 'virtual:svg-icons-register';
 
-import '@/styles/index.scss'
+import '@/styles/index.scss';
 
-app.mount('#app')
+const app = createApp(App);
+app.use(globalComponent);
+app.use(router);
+app.use(pinia);
+app.use(ElementPlus, { locale: zhTW });
+
+app.mount('#app');
