@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import { viteMockServe } from 'vite-plugin-mock'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import { viteMockServe } from 'vite-plugin-mock';
 
 export default defineConfig(({ command }) => {
   return {
@@ -31,5 +31,5 @@ export default defineConfig(({ command }) => {
         },
       },
     },
-  }
-})
+  };
+});
