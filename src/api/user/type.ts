@@ -1,35 +1,29 @@
-// Login request data type
-export interface loginForm {
+// user ts types
+// user login request
+export interface UserLoginForm {
   username: string;
   password: string;
 }
 
-// Login response data type
-interface loginDataType {
-  token?: string;
-  message?: string;
-}
-export interface loginResponseData {
+// all api response data type
+export interface ResponseData {
   code: number;
-  data: loginDataType;
+  message: string;
+  ok: boolean;
 }
 
-interface userInfo {
-  userId: number;
-  avatar: string;
-  username: string;
-  password: string;
-  desc: string;
-  roles: string[];
-  buttons: string[];
-  routes: string[];
-  token: string;
+//  user login response data type
+export interface UserLoginResponseData extends ResponseData {
+  data: string;
 }
-// Server response user data type
-interface userDataType {
-  checkUser: userInfo;
-}
-export interface userResponseData {
-  code: number;
-  data: userDataType;
+
+// user info response data type
+export interface UserInfoResponseData extends ResponseData {
+  data: {
+    routes: string[];
+    buttons: string[];
+    roles: string[];
+    name: string;
+    avatar: string;
+  };
 }

@@ -2,8 +2,9 @@ import { createApp } from 'vue';
 
 import App from '@/App.vue';
 import globalComponent from '@/components';
-import router from '@/router';
 import pinia from '@/store';
+import router from '@/router';
+import '@/router/permission';
 
 import ElementPlus from 'element-plus';
 import zhTW from 'element-plus/dist/locale/zh-tw.mjs'; //@ts-expect-error import lang mjs file

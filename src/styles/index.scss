@@ -10,3 +10,14 @@
   background: #6b3030;
   border-radius: 10px;
 }
+
+// progress bar
+#nprogress .bar {
+  background: skyblue !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(22, 219, 255, 1) 25%
+  ) !important;
+  height: 3px !important;
+}

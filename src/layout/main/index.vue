@@ -1,12 +1,27 @@
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <component :is="Component"></component>
+      <component :is="Component" v-if="readyFlag"></component>
     </transition>
   </router-view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useLayoutSettingStore } from '@/store/modules/setting';
+import { nextTick, ref, watch } from 'vue';
+
+let layoutSettingStore = useLayoutSettingStore();
+let readyFlag = ref(true);
+watch(
+  () => layoutSettingStore.refresh,
+  () => {
+    readyFlag.value = false;
+    nextTick(() => {
+      readyFlag.value = true;
+    });
+  },
+);
+</script>
 <script lang="ts">
 export default {
   name: 'Main-container',
@@ -16,7 +31,7 @@ export default {
 <style scoped>
 .fade-enter-from {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateY(20px);
 }
 .fade-enter-active {
   transition:
@@ -25,6 +40,6 @@ export default {
 }
 .fade-enter-to {
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateY(0px);
 }
 </style>

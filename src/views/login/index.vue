@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useUserStore } from '@/store/modules/user';
 import { User, Lock } from '@element-plus/icons-vue';
 import { ElNotification } from 'element-plus';
@@ -51,11 +51,12 @@ import { getTimeMessage } from '@/utils/time';
 
 let userStore = useUserStore();
 let $router = useRouter();
+let $route = useRoute();
 
 let isLoading = ref(false);
 let loginForm = reactive({
   username: 'admin',
-  password: '111111',
+  password: 'atguigu123',
 });
 
 let loginFormRef = ref();
@@ -68,7 +69,8 @@ const login = async () => {
       throw new Error('Username or password is empty');
     } */
     await userStore.userLogin(loginForm);
-    $router.push('/');
+    let redirect: any = $route.query.redirect;
+    $router.push({ path: redirect || '/' });
     ElNotification({
       type: 'success',
       title: getTimeMessage(),

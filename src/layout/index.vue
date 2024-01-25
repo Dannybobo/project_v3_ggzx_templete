@@ -2,7 +2,7 @@
   <div class="layout_container">
     <!-- Left menu -->
     <div class="layout_slider" :class="{ fold: layoutSettingStore.isFold }">
-      <logo @click="handleSliderCollapse"></logo>
+      <logo></logo>
       <el-scrollbar class="slider_scrollbar">
         <el-menu
           background-color="#001530"
